@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="pypi:repository-version" content="1.0">
+    <title>Links for {{ package }}</title>
+</head>
+<body>
+    <h1>Links for {{ package }}</h1>
+    {% for item in releases %}
+        <a href="{{ item.url }}#{{ item.hash_string }}"{% if item.requires_python %}data-requires-python="{{ item.requires_python }}"{% endif %}>{{ item.filename }}</a><br />
+    {% endfor %}
+</body>
+</html>
