@@ -12,8 +12,7 @@ needed packages in versions that would be the latest for that specific moment.
 ### How it works
 Let's say you're dealing with code written on 24 Feb 2016. All you need is to run PipAT, and use it as an index:
 ```
-python repo.py
+docker run --env PORT=8000 -p 8000:8000 lvoloshyn/pipat:latest
 pip install -i http://localhost:8000/2016-02-24/ -r requirements.txt
 pip install -i http://localhost:8000/2016-02-24/ pandas
-
 ```

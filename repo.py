@@ -3,12 +3,14 @@
 # Actual PYPI index at: https://pypi.org/simple/pandas/
 # Additional package data at https://pypi.org/pypi/{package_name}/json
 import datetime
+import os
 from dataclasses import dataclass
 
 import requests
 from flask import Flask, render_template
 
 app = Flask(__name__, template_folder="templates")
+PORT = os.environ.get("PORT", 8000)
 
 
 @dataclass
@@ -72,4 +74,6 @@ def get_package_versions_at(year: int, month: int, day: int, package: str):
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8000, debug=True)
+    print("Example (for Feb 24, 2016):")
+    print(f"$ pip install -i http://localhost:{PORT}/2016-02-24/ -r requirements.txt\n\n\n")
+    app.run(host="127.0.0.1", port=PORT, debug=False)
